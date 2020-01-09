@@ -12,6 +12,14 @@ Offload CPU-intensive tasks to worker threads in node.js, web browsers and elect
 
 Uses web workers in the browser, `worker_threads` in node 12+ and [`tiny-worker`](https://github.com/avoidwork/tiny-worker) in node 8 to 11.
 
+### What is different from the original *threads*?
+* Add fromScript function into the Worker class (andywer/threads.js [#196](https://github.com/andywer/threads.js/pull/196))
+  > ```javascript
+  > const work = await spawn(Worker.fromScript(`
+  > // javascript worker code...
+  > `));
+* Support [threads-loader](https://github.com/jc-lab/threads-loader)
+
 ### Features
 
 * First-class support for **async functions** & **observables**
@@ -27,7 +35,7 @@ You can find the old version 0.12 of threads.js on the [`v0` branch](https://git
 ## Installation
 
 ```
-npm install threads tiny-worker
+npm install @jc-lab/threads tiny-worker
 ```
 
 *You only need to install the `tiny-worker` package to support node.js < 12. It's an optional dependency and used as a fallback if `worker_threads` are not available.*
@@ -144,7 +152,7 @@ Everything else should work out of the box.
 
 ```js
 // master.js
-import { spawn, Thread, Worker } from "threads"
+import { spawn, Thread, Worker } from "@jc-lab/threads"
 
 const auth = await spawn(new Worker("./workers/auth"))
 const hashed = await auth.hashPassword("Super secret password", "1234")
