@@ -1,6 +1,6 @@
 {
   "name": "@jc-lab/threads",
-  "version": "1.0.0-rc1",
+  "version": "1.0.0-rc2",
   "description": "Web workers & worker threads as simple as a function call",
   "main": "dist/index.js",
   "module": "dist-esm/index.js",
@@ -24,9 +24,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andywer/threads.js.git"
+    "url": "git+https://github.com/jc-lab/threads.js.git"
   },
   "author": "Andy Wermke (https://github.com/andywer)",
+  "contributors": [
+    {
+      "name": "Joseph Lee",
+      "email": "development@jc-lab.net"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/andywer/threads.js/issues"
