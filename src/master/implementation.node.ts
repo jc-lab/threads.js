@@ -92,6 +92,7 @@ function initWorkerThreadsWorker(): typeof WorkerImplementation {
 
     public static fromScript(script: string) {
       const worker = new NativeWorker(script, {eval: true})
+      worker.mappedEventListeners = new WeakMap();
       worker.addEventListener = Worker.prototype.addEventListener
       worker.removeEventListener = Worker.prototype.removeEventListener
       allWorkers.push(worker)
